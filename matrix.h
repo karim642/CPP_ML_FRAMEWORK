@@ -2,6 +2,7 @@
 #define MATRIX_H
 #include <iostream>
 #include <vector>
+#include <string>
 class Matrix {
     public:
         Matrix();
@@ -9,7 +10,18 @@ class Matrix {
         void addColumn(std::vector<float> col_data);
         void addRow(std::vector<float> row_data);
         void printMatrix();
-        int getCost(std::vector<float> weights_and_b);
+        std::vector<float> getCol(int col_idx);
+         std::vector<float> getRow(int row_idx);
+        float getCost(std::vector<float> weights_and_b);
+        Matrix multiply(Matrix other);
+        void initializeWithZeros(int num_rows, int num_cols);
+        float& at(int row, int col);
+        int getNumCols() {
+            return num_cols;
+        }
+        int getNumRows() {
+            return num_rows;
+        }
     private:
         std::vector<float> data;
         int num_rows;
